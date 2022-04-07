@@ -1,0 +1,19 @@
+<app-menu-principal></app-menu-principal>
+<h2>Ejercicio Uno</h2>
+
+<label for="numeroUno">Primer Numero</label>
+<input type="number" name="numeroUno" id="" value=""[(ngModel)]="miNumero.numeroUno">
+<br>
+<label for="numeroDos">Segundo Numero</label>
+<input type="number" name="numeroDos" id="" value=""[(ngModel)]="miNumero.numeroDos">
+<br><br>
+<label for="suma">Suma</label>
+<br>
+<input type="text" name="suma" id="" value=""[(ngModel)]="miNumero.suma">
+<br>
+<label for="promedio">Promedio</label>
+<br>
+<input type="text" name="promedio" id="" value=""[(ngModel)]="miNumero.promedio">
+<br><br>
+<input type="button" value="Calcular" (click)=miNumero.calcular()>
+<input type="button" value="Limpiar" (click)=miNumero.limpiar()>
