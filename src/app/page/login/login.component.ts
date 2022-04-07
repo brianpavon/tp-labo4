@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/Class/User/user';
 
 @Component({
@@ -9,11 +10,17 @@ import { User } from 'src/app/Class/User/user';
 export class LoginComponent implements OnInit {
 
   newPerson:User;
-  constructor() { 
+  constructor(private routes:Router) { 
     this.newPerson = new User();
   }
 
   ngOnInit(): void {
+  }
+  redirectToHome(){
+    
+    if(this.newPerson.validate()){
+      this.routes.navigate(['home']);
+    }
   }
 
 }
