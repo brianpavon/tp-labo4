@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-juegos.component.css']
 })
 export class MenuJuegosComponent implements OnInit {
-
-  constructor() { }
+  gamesOn:boolean;
+  constructor() { 
+    this.gamesOn = false;
+  }
 
   ngOnInit(): void {
   }
-
+  activateGames(status:boolean){
+    status  ? this.gamesOn = true : this.gamesOn = false;    
+  }
 }
