@@ -1,7 +1,21 @@
 <app-menu-principal></app-menu-principal>
-<div class="container-fluid text-center">
+<!--<div class="container-fluid text-center">
   <h2>TP Sala de Juegos</h2>
   <p>En el login usar la consola para ver las credenciales </p>
+</div>-->
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light background-banner" >
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal"></h1>    
+    <a *ngIf="!gamesOn" class="btn btn-primary" (click)="activateGames('on')">Habilitar Juegos</a>
+    <a *ngIf="gamesOn" class="btn btn-primary" (click)="activateGames('off')">Cerrar Juegos</a>
+  </div>    
+</div>
+<div *ngIf="gamesOn" class="container">
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" >
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">      
+      <app-juegos></app-juegos>      
+    </div>
+  </div>
 </div>
   <!--<a [routerLink]="variable">Anterior</a> si pongo asi puedo usar una variable asi redirige a la anterior-->
   <div class="background-footer">

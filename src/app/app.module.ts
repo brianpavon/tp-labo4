@@ -10,6 +10,12 @@ import { ErrorComponent } from './page/error/error.component';
 import { AppRoutingModule } from './app-routing.module';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { MenuPrincipalComponent } from './page/menu-principal/menu-principal.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { JuegosComponent } from './page/juegos/juegos.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +25,14 @@ import { MenuPrincipalComponent } from './page/menu-principal/menu-principal.com
     LoginComponent,
     ErrorComponent,
     QuienSoyComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    JuegosComponent
   ],
   imports: [
-    BrowserModule,    
+    BrowserModule,        
     FormsModule, 
-    AppRoutingModule
+    AppRoutingModule, 
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
