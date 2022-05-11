@@ -6,11 +6,22 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class AuthService {
-
+  toast;
   constructor(private auth:AngularFireAuth) { 
     auth.authState.subscribe(user=>{
       //console.log(user);
     });
+    this.toast= Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
   }
 
   //Funciones
@@ -79,12 +90,10 @@ export class AuthService {
   }
 
   authSuccess(message:string){
-    Swal.fire({
+    this.toast.fire({
       title: message,
-      icon: 'success',
-      position: 'center',
-      timer: 2500
-    });
+      icon: 'success', 
+    })
   }
 
   //Funcion que lanzara los diferentes mensajes de error en el login

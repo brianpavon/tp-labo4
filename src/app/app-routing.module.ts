@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { JuegosModule } from './juegos/juegos.module';
 import { EjercicioUnoComponent } from './page/ejercicioUno/ejercicio-uno.component';
 import { ErrorComponent } from './page/error/error.component';
 import { HomeComponent } from './page/home/home.component';
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path: 'ingreso', component:LoginComponent},
   {path: 'quien-soy', component:QuienSoyComponent},
   {path: 'ejercicio-uno', component:EjercicioUnoComponent},
+  {path:'juegos',
+    loadChildren:()=>import('./juegos/juegos.module').then(m => JuegosModule)},  
   //esto si quiero una pagina dentro de otra, en el padre hay que poner el router outlet
   //{path:'juegos',component:componentJuego children: [
     //{path:'tateti',component:tateticomponent},
