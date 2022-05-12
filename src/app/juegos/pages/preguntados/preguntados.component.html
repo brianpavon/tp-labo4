@@ -1,1 +1,31 @@
-<p>preguntados works!</p>
+<div class="body vh-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 offset-4">
+                <div class="alert alert-info text-center" role="alert">
+                    Adiviná el personaje
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-4">
+                <img src="{{imagen}}" class="rounded mx-auto d-block foto" alt="...">                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-4">
+                <div class="list-group">
+                    <a *ngFor="let personaje of personajesDelJuego" class="list-group-item list-group-item-action list-group-item-warning" (click)="verificarPersonaje(personaje.name)">{{ personaje.name }}</a>                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-3">
+                <a data-toggle="tooltip" data-placement="bottom" title="Volver" routerLink='/juegos'>
+                    <i class="flecha-volver em em-arrow_left" aria-role="presentation" aria-label="LEFTWARDS BLACK ARROW"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</div>

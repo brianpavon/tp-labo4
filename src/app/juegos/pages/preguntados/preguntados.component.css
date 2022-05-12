@@ -1,0 +1,22 @@
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    height: 100vh;
+    overflow: hidden !important;
+}
+
+.list-group-item:hover{
+    background-color: #15A2DF;
+    color: black;
+}
+
+.foto{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+a{
+    cursor: pointer;
+}
