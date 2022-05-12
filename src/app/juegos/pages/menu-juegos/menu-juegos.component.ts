@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-menu-juegos',
@@ -7,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuJuegosComponent implements OnInit {
   gamesOn:boolean;
-  constructor() { 
+  userLogged:boolean;
+  constructor(private user:UserService,private auth:AngularFireAuth) {
     this.gamesOn = false;
+    this.userLogged = false;
+    auth.authState.subscribe(user=>{
+      user ? this.userLogged = true : this.userLogged = false;
+      user ? this.gamesOn = true : this.gamesOn = false;
+    })
+     
   }
 
   ngOnInit(): void {

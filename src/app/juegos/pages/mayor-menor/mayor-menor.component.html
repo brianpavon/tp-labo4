@@ -1,1 +1,30 @@
-<p>mayor-menor works!</p>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <!---Ahorcado-->
+        <div class="col-md-4" style="margin-top: 10%;">
+            <div class="card mb-4 shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>                        
+                    <rect width="100%" height="100%" fill="#55595c" fill-opacity="1"/>
+                    <text x="45%" y="50%" fill="#ffffff" dy=".3em" class="numero-carta">{{ numeroRandom }}</text>
+                    <image href="/assets/images/cartas.svg" style="width: 100%;"/>
+                </svg>
+                <div class="card-body">
+                    <p class="card-text text-center">La siguiente carta es mayor o menor?</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a type="button" (click)="esMayor()" class="btn btn-lg btn-primary">Mayor</a>
+                        </div>
+                        <div class="btn-group float-right">
+                            <a type="button" (click)="esMenor()" class="btn btn-lg btn-warning">Menor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <a data-toggle="tooltip" data-placement="bottom" title="Volver" routerLink='/juegos'><i class="flecha-volver em em-arrow_left" aria-role="presentation" aria-label="LEFTWARDS BLACK ARROW"></i></a>
+            </div>    
+        </div>
+    </div>
+</div>
+<!--<img src="assets/images/mi-foto.jpg" class="card-img-top" alt="...">-->
