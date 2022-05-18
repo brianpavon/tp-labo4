@@ -16,6 +16,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatComponent } from './page/chat/chat.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     ErrorComponent,
     QuienSoyComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,        

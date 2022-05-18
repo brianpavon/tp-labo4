@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Personajes } from 'src/app/interfaces/personajes';
 import { PersonajesService } from '../../services/personajes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-preguntados',
@@ -70,14 +71,15 @@ export class PreguntadosComponent implements OnInit {
     nombre == this.personajeParaAdivinar.name ? this.adivinaste() : this.perdiste();
   }
 
-  adivinaste(){    
-    alert('Adivinaste');
+  adivinaste(){ 
+    this.arrojarMensaje('¡¡Adivinaste!!');
+    //alert('Adivinaste');
     this.restearValores();
     this.iniciarJuego();
   }
   
   perdiste(){    
-    alert('Perdiste');
+    Swal.fire(`Perdiste!! Era ${this.personajeParaAdivinar.name}`);
     this.restearValores();
     this.iniciarJuego();
   }
@@ -87,4 +89,13 @@ export class PreguntadosComponent implements OnInit {
     this.imagen = '/assets/images/preload.gif';
   }
 
+  arrojarMensaje(title:string){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: title,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 }

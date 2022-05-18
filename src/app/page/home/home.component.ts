@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   isLogged: boolean;
   notLogged: boolean;
   gamesOn: boolean;
+  chatOn:boolean = false;
 
   constructor(private user:UserService,private auth:AngularFireAuth) { 
     this.isLogged = false;
@@ -28,4 +29,10 @@ export class HomeComponent implements OnInit {
     status == 'on' ? this.gamesOn = true : this.gamesOn = false;    
   }
 
+  activateChat(){
+    this.chatOn = true;
+  }
+  closeChat(){
+    this.chatOn = false;
+  }
 }

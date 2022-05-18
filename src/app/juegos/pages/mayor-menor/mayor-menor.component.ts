@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -31,12 +32,12 @@ export class MayorMenorComponent implements OnInit {
   }
 
   ganaste(){
-    this.numeroRandom = this.proximoNumero;
-    alert(`ganaste ${this.proximoNumero}`);
+    this.numeroRandom = this.proximoNumero;    
+    Swal.fire(`Ganaste!! El próximo era ${this.proximoNumero}`);
   }
   
   perdiste(){
     this.numeroRandom = this.proximoNumero;
-    alert(`perdiste ${this.proximoNumero}`);
+    Swal.fire(`Perdiste!! El próximo era ${this.proximoNumero}`);
   }
 }

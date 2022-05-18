@@ -1,8 +1,14 @@
-
-<!--<div class="container-fluid text-center">
-  <h2>TP Sala de Juegos</h2>
-  <p>En el login usar la consola para ver las credenciales </p>
-</div>-->
+<div *ngIf="isLogged" class="fixed-bottom">  
+  <a class="bubble-chat" style="cursor: pointer;" (click)="activateChat()">
+    <img class="" src="assets/images/bubble-chat.png" alt="bubble-chat" width="72" height="72">
+  </a>    
+</div>
+<div *ngIf="isLogged && chatOn" class="fixed-bottom bubble-chat">
+<button type="button" class="close" aria-label="Close" (click)="closeChat()">
+  <span aria-hidden="true">&times;</span>
+</button>
+<app-chat></app-chat>
+</div>
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light background-banner" >
   <div class="col-md-5 p-lg-5 mx-auto my-5">
     <h1 class="display-4 font-weight-normal"></h1>    
