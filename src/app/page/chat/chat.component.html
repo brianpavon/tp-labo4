@@ -1,21 +1,34 @@
-<div class="card text-center containerChat">
-    <div class="card-header chatHeader">
-      Sala de Chat
-    </div>
-    <div class="card-body">
-        <div>
-            <p *ngFor="let msj of arrayMensajes">
-                {{ msj.texto }}
-            </p>
-        </div>
-    </div>
-
-    <form class="card-footer text-muted input-group" (ngSubmit)="enviarMensaje()">        
-        <input type="text" class="form-control" placeholder="Envíe el Mensaje" [(ngModel)]="mensajeNuevo" [ngModelOptions]="{standalone: true}">
-        <div class="input-group-append" (click)="enviarMensaje()">
-            <span class="input-group-text" id="basic-addon2">
-                <img class="imgEnviar" src="/assets/images/send.png" alt="send"> 
-            </span>
-        </div>        
-    </form>    
+<div *ngIf="isLogged" class="fixed-bottom">  
+    <a class="bubble-chat" style="cursor: pointer;" (click)="activateChat()">
+      <img class="" src="assets/images/bubble-chat.png" alt="bubble-chat" width="72" height="72">
+    </a>    
+  </div>
+  <div *ngIf="isLogged && chatOn" class="fixed-bottom bubble-chat">
+  
+  <div class="card text-center containerChat">
+      <div class="card-header chatHeader">
+          Sala de Chat
+          <button type="button" class="close" aria-label="Close" (click)="closeChat()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+      </div>
+      <div class="card-body">
+          <div>
+              <p *ngFor="let msj of arrayMensajes" class="propio p-2">
+                  {{ msj.texto }}
+              </p>
+          </div>
+      </div>
+  
+      <form class="card-footer text-muted input-group" (ngSubmit)="enviarMensaje()">        
+          <input type="text" class="form-control" placeholder="Envíe el Mensaje" [(ngModel)]="mensajeNuevo" [ngModelOptions]="{standalone: true}">
+          <div class="input-group-append" (click)="enviarMensaje()">
+              <span class="input-group-text" id="basic-addon2">
+                  <img class="imgEnviar" src="/assets/images/send.png" alt="send"> 
+              </span>
+          </div>        
+      </form>    
+  </div>
+  
 </div>
+

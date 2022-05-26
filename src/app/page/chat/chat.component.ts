@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-chat',
@@ -21,9 +23,15 @@ export class ChatComponent implements OnInit {
       id:"id",
       texto:"texto3"
     }
-];
-  constructor(private authService:AuthService) { 
-    
+  ];
+  isLogged:boolean = false;
+  chatOn:boolean = false;
+  constructor(private authService:AngularFireAuth, private user:UserService) { 
+    authService.authState.subscribe(
+      user=>{
+        user ? this.isLogged = true : this.isLogged = false;
+      }
+    )
   }
 
   ngOnInit(): void {
@@ -33,5 +41,12 @@ export class ChatComponent implements OnInit {
     if(this.mensajeNuevo == '') return;
     console.log(this.mensajeNuevo);
     this.mensajeNuevo = "";
+  }
+
+  activateChat(){
+    this.chatOn = true;
+  }
+  closeChat(){
+    this.chatOn = false;
   }
 }

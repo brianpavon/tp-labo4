@@ -24,6 +24,33 @@
     background-size: 100%;
 }
 
+.propio{
+    display: block;
+    float: right;
+    background-color: rgb(5, 159, 107);
+    color: white;
+    min-width: 50.01%;
+    border-radius: 9px;
+    text-align: left;
+}
+
+.otro{
+    display: block;
+    float: left;
+    background-color: grey;
+    color: white;
+    min-width: 50.01%;
+    border-radius: 9px;
+    text-align: left;
+}
+
 .imgEnviar:active{
     transform: scale(0.8);
+}
+
+.bubble-chat{
+    float: right;
+}
+.close{
+    color: white;
 }
