@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-
-  constructor() { }
+  mensajeNuevo:string = '';
+  arrayMensajes:any=[
+    {
+      id:"id",
+      texto:"texto1"
+    },
+    {
+      id:"id",
+      texto:"texto2"
+    },
+    {
+      id:"id",
+      texto:"texto3"
+    }
+];
+  constructor(private authService:AuthService) { 
+    
+  }
 
   ngOnInit(): void {
   }
 
+  enviarMensaje(){
+    if(this.mensajeNuevo == '') return;
+    console.log(this.mensajeNuevo);
+    this.mensajeNuevo = "";
+  }
 }
