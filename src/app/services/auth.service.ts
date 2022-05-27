@@ -148,4 +148,8 @@ export class AuthService {
         break;
     }
   }
+
+  obtenerUsuarioLogueado(){
+    return this.auth.authState
+  }
 }

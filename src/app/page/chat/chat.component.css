@@ -54,3 +54,11 @@
 .close{
     color: white;
 }
+
+.msjDelChat{
+    overflow-y: scroll;    
+    padding: 0.35rem;
+}
+.msjDelChat::-webkit-scrollbar{
+    display: none;
+}

@@ -2,9 +2,8 @@
     <a class="bubble-chat" style="cursor: pointer;" (click)="activateChat()">
       <img class="" src="assets/images/bubble-chat.png" alt="bubble-chat" width="72" height="72">
     </a>    
-  </div>
-  <div *ngIf="isLogged && chatOn" class="fixed-bottom bubble-chat">
-  
+</div>
+<div *ngIf="isLogged && chatOn" class="fixed-bottom bubble-chat">  
   <div class="card text-center containerChat">
       <div class="card-header chatHeader">
           Sala de Chat
@@ -13,8 +12,8 @@
             </button>
       </div>
       <div class="card-body">
-          <div>
-              <p *ngFor="let msj of arrayMensajes" class="propio p-2">
+          <div class="msjDelChat h-100" id="contenedorMsj">              
+              <p *ngFor="let msj of arrayMensajes" class="msjChat p-2" [ngClass]="(this.usuarioLogueado.uid == msj.emisor) ? 'propio' : 'otro'">
                   {{ msj.texto }}
               </p>
           </div>
@@ -28,7 +27,6 @@
               </span>
           </div>        
       </form>    
-  </div>
-  
+  </div>  
 </div>
 

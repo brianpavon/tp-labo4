@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   ingresoRapido(){
-    console.log(this.mail + this.pass);
+    //console.log(this.mail + this.pass);
     this.mail = 'test@mail.com';
     this.pass = '654321';     
   }

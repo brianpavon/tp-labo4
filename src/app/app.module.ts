@@ -17,6 +17,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { HttpClientModule } from '@angular/common/http';
 import { ChatComponent } from './page/chat/chat.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ChatComponent } from './page/chat/chat.component';
     FormsModule, 
     AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebase),
-    HttpClientModule
+    HttpClientModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
